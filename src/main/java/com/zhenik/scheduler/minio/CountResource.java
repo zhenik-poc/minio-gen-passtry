@@ -12,9 +12,14 @@ public class CountResource {
     @Inject
     PayloadGenerator payloadGenerator;
 
+    @Inject
+    MinioService minioService;
+
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String randomPayload() {
-        return payloadGenerator.getPayload();
+        String payload = payloadGenerator.getPayload();
+        minioService.putObject(payload);
+        return payload;
     }
 }

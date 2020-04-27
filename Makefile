@@ -3,7 +3,7 @@ MVN := ./mvnw
 .PHONY: dev compile-native build-image
 
 dev:
-	${MVN} compile quarkus:dev
+	${MVN} compile quarkus:dev -Padditional
 
 # compile inside container for Linux OS
 compile-native:

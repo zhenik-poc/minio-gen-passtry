@@ -28,3 +28,10 @@ Or, if you don't have GraalVM installed, you can run the native executable build
 You can then execute your native executable with: `./target/scheduler-quickstart-1.0-SNAPSHOT-runner`
 
 If you want to learn more about building native executables, please consult https://quarkus.io/guides/building-native-image.
+
+## Minio 
+```bash
+mc config host add my-local-conf http://127.0.0.1:9000 minio minio123
+mc mb my-local-conf/hive
+mc cp myobject.csv my-local-conf/hive/warehouse/myobject.csv
+```
