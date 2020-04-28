@@ -4,9 +4,8 @@ MVN := ./mvnw
 
 dev:
 	${MVN} compile quarkus:dev
-# compile inside container for Linux OS
 run: up-minio create-bucket up-datagen
-# common build
+# dirty build
 build:
 	${MVN} clean package
 	docker-compose build datagen
@@ -22,6 +21,7 @@ up-datagen:
 bi: compile-docker-native build-image
 compile-current-os-native:
 	${MVN} clean package -Pnative
+# compile inside container for Linux OS
 compile-docker-native:
 	${MVN} package -Pnative -Dquarkus.native.container-build=true \
       -Dquarkus.native.container-runtime=docker
