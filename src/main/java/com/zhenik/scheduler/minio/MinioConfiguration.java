@@ -4,11 +4,11 @@ import io.quarkus.arc.config.ConfigProperties;
 
 @ConfigProperties(prefix="minio")
 public class MinioConfiguration {
-  private String suffix = "!";
   private String url;
   private String accessKey;
   private String secretKey;
   private String bucketname;
+  private String bucketnamePrefix;
 
   public String getUrl() { return url; }
   public void setUrl(String url) { this.url = url; }
@@ -18,6 +18,6 @@ public class MinioConfiguration {
   public void setSecretKey(String secretKey) { this.secretKey = secretKey; }
   public String getBucketname() { return bucketname; }
   public void setBucketname(String bucketname) { this.bucketname = bucketname; }
-  public String getSuffix() { return suffix; }
-  public void setSuffix(String suffix) { this.suffix = suffix; }
+  public String getBucketnamePrefix() { return bucketnamePrefix; }
+  public void setBucketnamePrefix(String bucketnamePrefix) { this.bucketnamePrefix = bucketnamePrefix; }
 }

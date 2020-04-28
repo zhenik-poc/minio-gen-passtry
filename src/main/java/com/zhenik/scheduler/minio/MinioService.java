@@ -16,11 +16,13 @@ import javax.inject.Inject;
 @ApplicationScoped
 public class MinioService {
   String bucketname;
+  String bucketnamePrefix;
   MinioClient minioClient;
 
   @Inject
   MinioService(MinioConfiguration minioConfiguration) throws InvalidPortException, InvalidEndpointException {
     this.bucketname = minioConfiguration.getBucketname();
+    this.bucketnamePrefix = minioConfiguration.getBucketnamePrefix();
     this.minioClient = new MinioClient(
         minioConfiguration.getUrl(),
         minioConfiguration.getAccessKey(),
@@ -34,7 +36,7 @@ public class MinioService {
       ByteArrayInputStream bais = new ByteArrayInputStream(payload.getBytes("UTF-8"));
       PutObjectOptions options = new PutObjectOptions(-1, PutObjectOptions.MAX_PART_SIZE);
       // "application/octet-stream"
-      minioClient.putObject(bucketname, objectName, bais, options);
+      minioClient.putObject(bucketname, bucketnamePrefix + objectName, bais, options);
       bais.close();
     } catch (IOException | MinioException | InvalidKeyException | NoSuchAlgorithmException e) {
       e.printStackTrace();
