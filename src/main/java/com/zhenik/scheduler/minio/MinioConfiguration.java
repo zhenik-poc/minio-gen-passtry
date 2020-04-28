@@ -8,7 +8,7 @@ public class MinioConfiguration {
   private String accessKey;
   private String secretKey;
   private String bucketname;
-  private String bucketnamePrefix;
+  private String bucketnameSuffix;
 
   public String getUrl() { return url; }
   public void setUrl(String url) { this.url = url; }
@@ -18,6 +18,6 @@ public class MinioConfiguration {
   public void setSecretKey(String secretKey) { this.secretKey = secretKey; }
   public String getBucketname() { return bucketname; }
   public void setBucketname(String bucketname) { this.bucketname = bucketname; }
-  public String getBucketnamePrefix() { return bucketnamePrefix; }
-  public void setBucketnamePrefix(String bucketnamePrefix) { this.bucketnamePrefix = bucketnamePrefix; }
+  public String getBucketnameSuffix() { return this.bucketnameSuffix; }
+  public void setBucketnameSuffix(String bucketnameSuffix) { this.bucketnameSuffix = bucketnameSuffix; }
 }

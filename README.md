@@ -1,37 +1,23 @@
-# scheduler-quickstart project
+# Minio data generator [scheduler]
+Cron-job application, put `.csv` file into minio `bucket`. 
+This project uses Quarkus, the [Supersonic Subatomic Java Framework](https://quarkus.io/)
+Application build with GraalVM. 
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
-
-If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
-
-## Running the application in dev mode
-
-You can run your application in dev mode that enables live coding using:
+## How to run
 ```
-./mvnw quarkus:dev
+make run
 ```
 
-## Packaging and running the application
-
-The application can be packaged using `./mvnw package`.
-It produces the `scheduler-quickstart-1.0-SNAPSHOT-runner.jar` file in the `/target` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `target/lib` directory.
-
-The application is now runnable using `java -jar target/scheduler-quickstart-1.0-SNAPSHOT-runner.jar`.
-
-## Creating a native executable
-
-You can create a native executable using: `./mvnw package -Pnative`.
-
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using: `./mvnw package -Pnative -Dquarkus.native.container-build=true`.
-
-You can then execute your native executable with: `./target/scheduler-quickstart-1.0-SNAPSHOT-runner`
-
-If you want to learn more about building native executables, please consult https://quarkus.io/guides/building-native-image.
-
-## Minio 
-```bash
-mc config host add my-local-conf http://127.0.0.1:9000 minio minio123
-mc mb my-local-conf/hive
-mc cp myobject.csv my-local-conf/hive/warehouse/myobject.csv
+## Datamodel
+Service generate `.csv` file with random UUID name and payload like:
+```
+id,timestamp,value
+666c4dae-2098-4713-8113-016c8ce34cc9,1588064319,8sDr
+e5a57e31-3773-4c59-a811-4d8585547470,1588064319,x5LRgxINkOb
+82ede752-37ed-4517-b76d-b1d1c3c30e6b,1588064319,CvB
+ec16b662-d535-4e92-9d7a-95854a8f75fc,1588064319,8D1FrzfOwf
+be1d1d54-afaf-4e80-836a-6486b8ab4810,1588064319,8GLa06NRCOFtIv8s1
+4aa4065e-7b3a-478e-b34f-bbfec35f0d08,1588064319,150RQasB72XeavyW5JB
+c1beb5c9-9013-4271-b4f3-c0099cfd4032,1588064319,9o9V
+e8c96669-9987-44d0-9e39-b8d7880bfe6f,1588064319,CSvSQQhs0uV
 ```
