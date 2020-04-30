@@ -1,11 +1,13 @@
 MVN := ./mvnw
 
-.PHONY: dev compile-docker-native build-image compile-current-os-native
+.PHONY: dev prep compile-docker-native build-image compile-current-os-native
 
 dev:
 	${MVN} compile quarkus:dev
-run: up-minio create-bucket up-datagen
+run: prep up-minio create-bucket up-datagen
 # dirty build
+prep:
+	docker-compose pull
 build:
 	${MVN} clean package
 	docker-compose build datagen
