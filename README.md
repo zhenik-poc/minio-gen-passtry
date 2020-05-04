@@ -7,6 +7,8 @@ Application build with GraalVM.
 ```
 make run
 ```
+## Docker
+Image `zhenik/bysykkel2minio:1.0` available on docker-hub.
 
 ## Prerequisites
 * Minio bucket should exist
