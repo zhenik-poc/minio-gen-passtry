@@ -11,7 +11,8 @@ public interface BySykkelService {
 
   @GET
   @Path("/station_status.json")
-  //@HeaderParam(name = "Client-Identifier", value = "${client.identifier}")
-  @ClientHeaderParam(name = "Client-Identifier", value = "zhenik-test")
+  @ClientHeaderParam(
+      name = "Client-Identifier",
+      value = "zhenik-test") // todo: extract header value to config
   Response getBikeAvailability();
 }

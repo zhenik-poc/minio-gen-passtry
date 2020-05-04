@@ -30,9 +30,8 @@ public class MinioService {
     );
   }
 
-  public void putObject(String payload) {
+  public void putObject(String objectName, String payload) {
     try {
-      String objectName = UUID.randomUUID().toString() + ".csv";
       ByteArrayInputStream bais = new ByteArrayInputStream(payload.getBytes("UTF-8"));
       PutObjectOptions options = new PutObjectOptions(-1, PutObjectOptions.MAX_PART_SIZE);
       // "application/octet-stream"
