@@ -13,7 +13,7 @@ public class Scheduler {
   @Inject @RestClient BySykkelService bySykkelService;
 
   @Scheduled(cron = "{cron.expr}")
-  void cronJobWithExpressionInConfig() {
+  void triggerDataTransfer() {
     long timeNow = Instant.now().getEpochSecond();
     String objectName = timeNow + ".json";
     String payload = bySykkelService.getBikeAvailability().readEntity(String.class);

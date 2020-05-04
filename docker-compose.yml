@@ -23,6 +23,8 @@ services:
       context: .
       dockerfile: Dockerfile
     environment:
+      BYSYKKEL_CLIENT_IDENTIFIER: zhenik-test
+      BYSYKKEL_API_URL: https://gbfs.urbansharing.com/oslobysykkel.no/station_status.json
       MINIO_URL: http://minio:9000
       MINIO_ACCESS_KEY: minio
       MINIO_SECRET_KEY: minio123
