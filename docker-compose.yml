@@ -17,8 +17,8 @@ services:
       mc config host add super-puper-config http://minio:9000 minio minio123 && \
         mc mb super-puper-config/default || exit 1;"
 
-  datagen:
-    image: zhenik/passtry-minio-gen:1.01
+  bysykkel2minio:
+    image: zhenik/bysykkel2minio:1.0
     build:
       context: .
       dockerfile: Dockerfile
@@ -27,7 +27,7 @@ services:
       MINIO_ACCESS_KEY: minio
       MINIO_SECRET_KEY: minio123
       MINIO_BUCKETNAME: default
-      MINIO_BUCKETNAME_SUFFIX: oops/
+      MINIO_BUCKETNAME_SUFFIX:  bysykkel/station-availability/
     depends_on:
       - minio
       - mc
