@@ -22,6 +22,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    ports:
+      - 8080:8080
     environment:
       BYSYKKEL_CLIENT_IDENTIFIER: zhenik-test
       BYSYKKEL_API_URL: https://gbfs.urbansharing.com/oslobysykkel.no/station_status.json
