@@ -1,4 +1,4 @@
-# Minio data generator [scheduler]
+# Integration bysykkel to minio [scheduler]
 Cron-job application, put `.json` file into minio `bucket`. 
 This project uses Quarkus, the [Supersonic Subatomic Java Framework](https://quarkus.io/)
 Application build with GraalVM. 
