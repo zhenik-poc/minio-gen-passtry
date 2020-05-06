@@ -4,19 +4,19 @@ MVN := ./mvnw
 
 dev:
 	${MVN} compile quarkus:dev
-run: prep up-minio create-bucket up-datagen
+run: prep up-minio create-bucket up-bysykkel2minio
 # dirty build
 prep:
 	docker-compose pull
 build:
 	${MVN} clean package
-	docker-compose build datagen
+	docker-compose build bysykkel2minio
 up-minio:
 	docker-compose up -d minio
 create-bucket:
 	docker-compose up mc
-up-datagen:
-	docker-compose up -d datagen
+up-bysykkel2minio:
+	docker-compose up -d bysykkel2minio
 
 ### Native image build Work In Progress
 # native image run has issue currently, check github issue for project

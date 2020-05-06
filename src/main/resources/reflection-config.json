@@ -7,5 +7,15 @@
     "allPublicMethods" : true,
     "allDeclaredFields" : true,
     "allPublicFields" : true
+  },
+  {
+    "name" : "com.zhenik.scheduler.minio.BySykkelService",
+    "allDeclaredConstructors" : true,
+    "allPublicConstructors" : true,
+    "allDeclaredMethods" : true,
+    "allPublicMethods" : true,
+    "allDeclaredFields" : true,
+    "allPublicFields" : true
   }
+
 ]
