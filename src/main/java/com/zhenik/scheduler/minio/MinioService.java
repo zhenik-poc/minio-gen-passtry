@@ -1,5 +1,6 @@
 package com.zhenik.scheduler.minio;
 
+import com.zhenik.scheduler.minio.config.MinioConfiguration;
 import io.minio.MinioClient;
 import io.minio.PutObjectOptions;
 import io.minio.errors.InvalidEndpointException;

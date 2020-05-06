@@ -1,4 +1,4 @@
-package com.zhenik.scheduler.minio;
+package com.zhenik.scheduler.minio.config;
 
 import io.quarkus.arc.config.ConfigProperties;
 

@@ -6,11 +6,11 @@ import org.eclipse.microprofile.config.ConfigProvider;
 import org.eclipse.microprofile.rest.client.annotation.ClientHeaderParam;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
-@RegisterRestClient
-public interface BySykkelService {
+@RegisterRestClient(configKey="bysykkel-api")
+public interface BySykkelServiceApi {
 
   default String clientIdentifier() {
-    return ConfigProvider.getConfig().getValue("bysykkel.client-identifier", String.class);
+    return ConfigProvider.getConfig().getValue("bysykkel-api.client-identifier", String.class);
   }
 
   @GET
