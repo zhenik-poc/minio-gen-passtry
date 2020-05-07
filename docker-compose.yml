@@ -18,7 +18,7 @@ services:
         mc mb super-puper-config/default || exit 1;"
 
   bysykkel2minio:
-    image: zhenik/bysykkel2minio:1.0
+    image: zhenik/bysykkel2minio:proxy-1.1
     build:
       context: .
       dockerfile: Dockerfile
@@ -32,6 +32,10 @@ services:
       MINIO_SECRET_KEY: minio123
       MINIO_BUCKETNAME: default
       MINIO_BUCKETNAME_SUFFIX:  bysykkel/station-availability/
+#      optional
+#      PROXY_URI:
+#      PROXY_PORT:
+#      PROXY_SCHEME:
     depends_on:
       - minio
       - mc

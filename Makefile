@@ -1,16 +1,18 @@
 MVN := ./mvnw
 
-.PHONY: dev prep compile-docker-native build-image compile-current-os-native
+.PHONY: dev prep up compile-docker-native build-image compile-current-os-native
 
 dev:
 	${MVN} compile quarkus:dev
-run: prep up-minio create-bucket up-bysykkel2minio
+run: prep up
 # dirty build
 prep:
 	docker-compose pull
 build:
 	${MVN} clean package
 	docker-compose build bysykkel2minio
+up:
+	docker-compose up -d
 up-minio:
 	docker-compose up -d minio
 create-bucket:
@@ -19,7 +21,7 @@ up-bysykkel2minio:
 	docker-compose up -d bysykkel2minio
 
 ### Native image build Work In Progress
-# native image run has issue currently, check github issue for project
+# native image runtime has issue currently, check github issue for project
 bi: compile-docker-native build-image
 compile-current-os-native:
 	${MVN} clean package -Pnative
