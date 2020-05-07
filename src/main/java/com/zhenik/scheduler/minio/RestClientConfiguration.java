@@ -26,11 +26,9 @@ public class RestClientConfiguration {
 
   public BySykkelServiceApi restClient() throws MalformedURLException {
     RestClientBuilder restClientBuilder = RestClientBuilder
-        .newBuilder();
-        //.baseUrl(UriBuilder.fromUri(targetUrl).build().toURL());
-        //.baseUri(UriBuilder.fromUri(targetUrl).build());
-    System.out.println("Target url "+ targetUrl);
-    // if proxy conf provided
+        .newBuilder()
+        .baseUrl(UriBuilder.fromUri(targetUrl).build().toURL());
+
     if (proxyConfiguration.getUri().isPresent()){
       restClientBuilder
           .property(PROPERTY_PROXY_HOST, proxyConfiguration.getUri().get())
